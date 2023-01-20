@@ -1,7 +1,7 @@
-# undefined
+# PRO-README-Generator
   https://github.com/Sakariya95/PRO-README-Generator
 # Description
-undefined
+This project is here in order to generate a professional README file easily and quickly.
 # Table of Contents 
 * [Installation](#installation)
 * [Usage](#usage)
@@ -9,14 +9,14 @@ undefined
 * [Tests](#tests)
 * [License](#license)
 # Installation
-The following necessary dependencies must be installed to run the application properly: In order to run app you would have to install and a few packages which include; inquirer, fs and util
+The following necessary dependencies must be installed to run the application properly: In order run the app you would have to download a few dependencies which include; inquirer, fs, util
 # Usage
-In order to use this app, in order to use the application you would have run it in terminal
+In order to use this app, In order to use this application you would have run it on terminal
 
 # Contributing
-​Contributors: none
+​Contributors: None
 # Tests
-The following is needed to run the test: The procedures would be to following steps after entering node index.js in terminal
+The following is needed to run the test: Would be to run node index.js on terminal
 # License
 This project is licensed under the N/A license. 
 
