@@ -1,63 +1,90 @@
 /// TODO: Include packages needed for this application
 var inquirer = require('inquirer');
 const fs = require('fs');
-const {questions} = require('statuses')
+const utils = require('utils')
+
+const generatorMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
-const questions = [];
-inquirer
-  .prompt([
-        {
-            type: 'input',
-            questions: "What's the project title?",
-            name:'title',
-            validate: (value)=>{if(value){return true}else {return 'I need a value to continue'}}
+const questions = [
 
-        },
-        {
-            type: 'input',
-            questions: "What would be the descriptions of the project?",
-            name:'Descriptions',
-            validate: (value)=>{if(value){return true}else {return 'I need a value to continue'}}
+    {
+        type: 'input',
+        questions: "What's the project title?",
+        name:'Title',
+    },
+    {
+        type: 'input',
+        questions: "What would be the descriptions of the project?",
+        name:'Descriptions',
+    },
+    {
+        type: 'input',
+        questions: "What would be the installation process?",
+        name:'Installation',
+    },
+    {
+        type: 'input',
+        questions: "What's the usage informations?",
+        name:'Usage',
+    },
+    {
+        type: 'input',
+        questions: "What's the contribution guidelines?",
+        name:'Contributing',
+    },
+    {
+        type: 'input',
+        questions: "What's the test procedures?",
+        name:'Tests',
+    },
+    {
+        type: 'list',
+        questions: "What license did you use?",
+        name:'License',
+        choices:['The MIT License', 'Apache License', 'GNU License', 'The GPL License', 'N/A'],
+    },
+    {
+        type: 'input',
+        questions: "GitHub username:",
+        name:'Username',
+    },
+    {
+        type: 'input',
+        questions: "Email address?",
+        name:'Email',
+    },
+            
+];
+//the function to write README file
+function writeToFile(fileName, data) {
 
-        },
-        {
-            type: 'input',
-            questions: "What would be the installation process?",
-            name:'Installation',
-            validate: (value)=>{if(value){return true}else {return 'I need a value to continue'}}
+    fs.writeFile(fileName, data, function(err) {
+        console.log(fileName)
+        console.log(data)
+        if (err) {
+            return console.log(err)
+        } else {
+            console.log("success")
+        }
+    })
 
-        },
-        {
-            type: 'input',
-            questions: "What's the usage informations?",
-            name:'Usage',
-            validate: (value)=>{if(value){return true}else {return 'I need a value to continue'}}
+}
 
-        },
-        {
-            type: 'input',
-            questions: "What's the contribution guidelines?",
-            name:'Contributing',
-            validate: (value)=>{if(value){return true}else {return 'I need a value to continue'}}
 
-        },
-        {
-            type: 'input',
-            questions: "What's the test procedures?",
-            name:'Tests',
-            validate: (value)=>{if(value){return true}else {return 'I need a value to continue'}}
 
-        },
-        
-  ])
-  .then((answers) => {
-    // Use user feedback for... whatever!!
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
+
+
+// the function to initialize program
+function init() {
+    inquirer.prompt(questions)
+        .then(function(data) {
+            writeToFile("README.md", generatorMarkdown(data));
+            console.log(data)
+
+        })
+
+}
+
+// the function call to initialize program
+init();
