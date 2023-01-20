@@ -1,7 +1,7 @@
 /// TODO: Include packages needed for this application
 var inquirer = require('inquirer');
 const fs = require('fs');
-const utils = require('utils')
+const util = require('util')
 
 const generatorMarkdown = require('./utils/generateMarkdown');
 
@@ -58,21 +58,17 @@ const questions = [
 //the function to write README file
 function writeToFile(fileName, data) {
 
-    fs.writeFile(fileName, data, function(err) {
+    fs.writeFile(fileName, data, function(error) {
         console.log(fileName)
         console.log(data)
-        if (err) {
-            return console.log(err)
+        if (error) {
+            return console.log(error)
         } else {
-            console.log("success")
+            console.log("Your README has been generated")
         }
     })
 
 }
-
-
-
-
 
 // the function to initialize program
 function init() {
