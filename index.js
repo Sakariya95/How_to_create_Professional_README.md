@@ -1,4 +1,4 @@
-/// Packaes needed
+/// Packages needed to run program
 var inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util')
@@ -50,7 +50,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: "Email address?",
+        message: "whats your Email address for future questions?",
         name:'Email',
     },
             
