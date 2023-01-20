@@ -1,8 +1,8 @@
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `# ${data.Title}
   https://github.com/${data.Username}/${data.Title}
 # Description
-${data.Description}
+${data.Descriptions}
 # Table of Contents 
 * [Installation](#installation)
 * [Usage](#usage)
